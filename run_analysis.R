@@ -55,7 +55,7 @@ run_analysis <- function(){
         
         # reduce df to only the desired columns
         X.reduced <- X.merged[, c("subject", "activity", "activity.description", mean.columns.names, std.columns.names)]
-        
+        # group_by and summarise by activity (description) and subject using means for all columns
         X.summ <- X.reduced %>% group_by(activity.description, subject) %>% summarise_each(funs(mean))
         
 }
